@@ -231,7 +231,7 @@ h3 {
 .archetype-pie canvas {
   width: 100% !important;
   height: auto !important;
-  max-height: 350px;
+  max-height: 400px;
 }
 .archetype-select-custom {
   position: sticky;
@@ -573,7 +573,7 @@ h3 {
   width: 100% !important;
   flex: 1;
   min-height: 0;
-  max-height: 180px;
+  max-height: 220px;
 }
 
 .card-stats {
@@ -985,6 +985,14 @@ html.dark-mode .deck-url-header {
     grid-template-columns: 1fr;
     gap: 12px;
   }
+  .archetype-chart-box canvas {
+    max-height: 260px;
+  }
+  .archetype-chart-box canvas,
+  .archetype-pie canvas {
+    height: 260px !important;
+    max-height: 260px;
+  }
   .archetype-other-cards {
     grid-template-columns: 1fr;
   }
@@ -1002,14 +1010,20 @@ html.dark-mode .deck-url-header {
   .archetype-select-custom {
     top: 45px;
   }
+  .card-img-enlarge {
+    max-width: 92vw;
+  }
+  .card-img-enlarge img {
+    height: auto;
+    max-height: 45vh;
+    width: auto;
+    max-width: 92vw;
+  }
 }
 
 @media (max-width: 480px) {
   .cg-card {
     min-width: 45px;
-  }
-  .cg-card-id {
-    font-size: 0.6rem;
   }
   .winner-ribbon {
     width: 28px;

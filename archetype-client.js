@@ -45,10 +45,11 @@ function initPieChart(seriesId, canvas) {
         backgroundColor: groupLabels.map(segmentColor),
       }],
     },
-    options: {
-      responsive: true,
-      maintainAspectRatio: true,
-      plugins: {
+      options: {
+        responsive: true,
+        maintainAspectRatio: window.innerWidth < 768 ? false : true,
+        layout: { padding: { top: 25 } },
+        plugins: {
         legend: { display: false },
         tooltip: {
           callbacks: {
@@ -185,7 +186,7 @@ function initArchetypeCharts(seriesId, idx) {
         ],
       },
       options: {
-        responsive: true, maintainAspectRatio: true,
+        responsive: true, maintainAspectRatio: window.innerWidth < 768 ? false : true,
         plugins: {
           legend: { display: false },
           tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ' + ctx.parsed.y } },
