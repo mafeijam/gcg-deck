@@ -6,6 +6,7 @@ bandai-*.js
 card.js
 download-images.js
 meta-by-series copy.js
+meta-by-series.js.vue-bak
 optcg/
 split_events.js
 stats-*.js
