@@ -1,11 +1,18 @@
 node_modules/
-data/tournaments-all.json
-data/tournaments-all.json.bak
+data/
 .vscode/
-bandai-scrape.js
-bandai-scroll.js
+*.bak
+bandai-*.js
 card.js
-data/bandai-tournaments.json
+download-images.js
+meta-by-series copy.js
+optcg/
+split_events.js
+stats-*.js
+stats-*.html
+top-20.js
+tournament.js
+utils.js
 archetype-grid.js
 archetype-utils.js
 archetype-renderer.js
