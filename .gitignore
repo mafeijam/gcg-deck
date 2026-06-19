@@ -1,0 +1,13 @@
+node_modules/
+data/tournaments-all.json
+data/tournaments-all.json.bak
+archetype-grid.js
+archetype-utils.js
+archetype-renderer.js
+meta-by-series.js
+meta-by-series.html
+meta-by-series.css
+tournament-all.js
+eslint.config.js
+package.json
+package-lock.json
