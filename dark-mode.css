@@ -3,6 +3,10 @@ html.dark-mode .subtitle { color: #cbd5e0; }
 html.dark-mode h1, html.dark-mode h2, html.dark-mode h3 { color: #94a3b8; }
 html.dark-mode .tabs { border-bottom-color: #4a5568; }
 html.dark-mode .tabs.stuck { background: #1a202c; }
+html.dark-mode .tabs::before { background: linear-gradient(90deg, rgba(255,255,255,0.08), transparent); }
+html.dark-mode .tabs::after { background: linear-gradient(270deg, rgba(255,255,255,0.08), transparent); }
+html.dark-mode .tabs.stuck::before { background: linear-gradient(90deg, rgba(255,255,255,0.08), transparent); }
+html.dark-mode .tabs.stuck::after { background: linear-gradient(270deg, rgba(255,255,255,0.08), transparent); }
 html.dark-mode .tab { color: #a0aec0; }
 html.dark-mode .tab:hover { background: #4a5568; color: #e2e8f0; }
 html.dark-mode .tab.active { background: #1e293b; border-color: #334155; color: #667eea; border-bottom-color: #1e293b; }
@@ -68,7 +72,7 @@ html.dark-mode .bar-wrapper .bar { opacity: .35; }
   font-size: 1.1rem; line-height: 1;
   cursor: pointer; display: flex; align-items: center; justify-content: center;
   box-shadow: 0 1px 3px rgba(0,0,0,.12);
-  transition: all .15s;
+  transition: all .15s, opacity .2s;
 }
 #dark-toggle:hover { background: #edf2f7; }
 html.dark-mode #dark-toggle { background: #2d3748; color: #e2e8f0; border-color: #4a5568; }

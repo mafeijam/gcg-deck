@@ -250,6 +250,7 @@ function switchTab(id, el) {
   }
   initArchetypeCharts(seriesId, 0)
   syncOtherCardsState()
+  requestAnimationFrame(updateTabsScrollIndicators)
 }
 
 document.addEventListener('click', e => {
@@ -347,6 +348,24 @@ document.addEventListener('mouseout', e => {
   const popup = document.getElementById('deck-preview-popup')
   if (popup) popup.style.opacity = '0'
 })
+
+// Tabs scroll indicator
+function updateTabsScrollIndicators() {
+  document.querySelectorAll('.tabs-inner').forEach(el => {
+    const tabs = el.parentElement
+    const canScrollLeft = el.scrollLeft > 4
+    const canScrollRight = el.scrollWidth - el.clientWidth - el.scrollLeft > 4
+    tabs.classList.toggle('can-scroll-left', canScrollLeft)
+    tabs.classList.toggle('can-scroll-right', canScrollRight)
+  })
+}
+document.addEventListener('scroll', updateTabsScrollIndicators, true)
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('dark-toggle')
+  if (btn) btn.style.opacity = window.scrollY < 50 ? '1' : '0'
+})
+window.addEventListener('resize', updateTabsScrollIndicators)
+requestAnimationFrame(updateTabsScrollIndicators)
 
 // Sticky tabs background
 ;(() => {

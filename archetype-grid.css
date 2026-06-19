@@ -12,6 +12,17 @@ h3 { font-size: 1.1rem; margin: 40px 0 12px; }
   position: sticky; top: 0; z-index: 1000;
 }
 .tabs.stuck { background: #f5f7fa; }
+.tabs::before, .tabs::after {
+  content: ''; position: absolute; top: 0; bottom: 2px;
+  width: 40px; pointer-events: none; opacity: 0;
+  transition: opacity .2s; z-index: 1;
+}
+.tabs::before { left: 0; background: linear-gradient(90deg, rgba(0,0,0,0.08), transparent); }
+.tabs::after { right: 0; background: linear-gradient(270deg, rgba(0,0,0,0.08), transparent); }
+.tabs.can-scroll-left::before { opacity: 1; }
+.tabs.can-scroll-right::after { opacity: 1; }
+.tabs.stuck::before { background: linear-gradient(90deg, rgba(0,0,0,0.08), transparent); }
+.tabs.stuck::after { background: linear-gradient(270deg, rgba(0,0,0,0.08), transparent); }
 .tab {
   padding: 12px 24px; cursor: pointer; font-size: .85rem;
   border: 1px solid transparent; border-bottom: none;
@@ -23,6 +34,7 @@ h3 { font-size: 1.1rem; margin: 40px 0 12px; }
 .tab.active {
   background: #fff; border-color: #e2e8f0; color: #2b6cb0; border-bottom-color: #fff;
 }
+.tabs-inner { display: flex; }
 .tab-pane { display: none; }
 .tab-pane.active { display: block; }
 .card-img-wrapper { position: relative; display: inline-block; line-height: 0; width: 100%; overflow: hidden; }
@@ -436,3 +448,44 @@ html.dark-mode .deck-url-header { color: #94a3b8; }
 .cg-card-id { font-size: .72rem; font-family: "SF Mono", "Fira Code", monospace; color: #1a202c; text-align: center; }
 .cg-card.is-lr .card-rarity { color: #d69e2e; }
 .archetype-item.is-lr .card-rarity { color: #d69e2e; }
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  body { padding: 12px 12px 60px; }
+  .tabs-inner { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .tabs-inner::-webkit-scrollbar { display: none; }
+  .tab { padding: 10px 14px; white-space: nowrap; font-size: .8rem; flex-shrink: 0; }
+  .card-grid-section { grid-template-columns: 1fr; }
+  .archetype-2col-wrapper { grid-template-columns: 1fr; }
+  .archetype-col-units { grid-column: 1; }
+  .archetype-col-others { grid-column: 1; }
+  .archetype-col-units .archetype-type-group,
+  .archetype-col-others .archetype-type-group { grid-template-columns: repeat(2, 1fr); }
+  .archetype-col-units .archetype-type-heading,
+  .archetype-col-others .archetype-type-heading { grid-column: span 2; }
+  .as-trigger { padding: 10px 28px 10px 10px; font-size: .8rem; }
+  .as-option { padding: 10px 28px 10px 10px; flex-wrap: wrap; gap: 2px; }
+  .as-opt-label { width: 100%; }
+  .as-opt-stats, .as-trigger-stats { white-space: normal; font-size: .7rem; }
+  .as-opt-stats { width: 100%; text-align: left; padding-left: 38px; }
+  .as-trigger { flex-wrap: wrap; gap: 4px; }
+  .as-trigger-label { flex-wrap: wrap; }
+  .as-dots { flex-shrink: 0; width: 48px; }
+  .as-combo { flex-shrink: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+  .as-sigs { width: 100%; order: 3; display: block; }
+  .as-opt-label { gap: 4px; }
+  .as-dots { width: 48px; }
+  .as-combo { min-width: 0; }
+  .as-options { max-height: 300px; }
+  .archetype-charts-row { grid-template-columns: 1fr; gap: 12px; }
+  .archetype-other-cards { grid-template-columns: 1fr; }
+  .as-opt-label { flex-wrap: wrap; white-space: normal; }
+  .modal-content { width: 95%; max-height: 90vh; }
+  .modal-body { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .cg-card { min-width: 45px; }
+  .cg-card-id { font-size: .6rem; }
+  .winner-ribbon { width: 28px; height: 28px; }
+}
