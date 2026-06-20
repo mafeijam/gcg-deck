@@ -136,6 +136,21 @@ function toggleArchetypeSelect(seriesId) {
   if (!isOpen) options.classList.add('open')
 }
 
+function toggleSeriesDropdown(el) {
+  const options = el.parentElement.querySelector('.msd-options')
+  const isOpen = options.classList.contains('open')
+  document.querySelectorAll('.msd-options').forEach(o => o.classList.remove('open'))
+  if (!isOpen) options.classList.add('open')
+}
+
+function selectSeries(value, el) {
+  switchTab('series-' + value, null)
+  document.querySelectorAll('.msd-option').forEach(o => o.classList.remove('active'))
+  el.classList.add('active')
+  el.closest('.mobile-series-dropdown').querySelector('.msd-label').textContent = el.textContent.trim()
+  document.querySelectorAll('.msd-options').forEach(o => o.classList.remove('open'))
+}
+
 function syncOtherCardsState() {
   const open = otherCardsAllOpen
   document.querySelectorAll('.archetype-other-toggle').forEach(toggle => {
@@ -258,6 +273,9 @@ document.addEventListener('click', e => {
   if (!e.target.closest('.archetype-select-custom')) {
     document.querySelectorAll('.as-options').forEach(el => el.classList.remove('open'))
   }
+  if (!e.target.closest('.mobile-series-dropdown')) {
+    document.querySelectorAll('.msd-options').forEach(el => el.classList.remove('open'))
+  }
 })
 
 function openDeckUrlModal(seriesId) {
@@ -363,7 +381,11 @@ function updateTabsScrollIndicators() {
 document.addEventListener('scroll', updateTabsScrollIndicators, true)
 window.addEventListener('scroll', () => {
   const btn = document.getElementById('dark-toggle')
-  if (btn) btn.style.opacity = window.scrollY < 50 ? '1' : '0'
+  if (btn) {
+    const hidden = window.scrollY >= 50
+    btn.style.opacity = hidden ? '0' : '1'
+    btn.style.zIndex = hidden ? '-1' : '3000'
+  }
 })
 window.addEventListener('resize', updateTabsScrollIndicators)
 requestAnimationFrame(updateTabsScrollIndicators)
