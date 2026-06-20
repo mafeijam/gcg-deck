@@ -252,11 +252,13 @@ h3 {
   border-radius: 6px;
   cursor: pointer;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   transition: all 0.15s;
   user-select: none;
   position: relative;
+  gap: 4px;
 }
 .as-trigger:hover {
   border-color: #a0aec0;
@@ -321,9 +323,6 @@ h3 {
   display: flex;
   align-items: center;
   gap: 6px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 .as-dots {
   width: 44px;
@@ -335,9 +334,8 @@ h3 {
   min-width: 120px;
 }
 .as-sigs {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: normal;
+  overflow: visible;
 }
 .as-opt-stats,
 .as-trigger-stats {
@@ -943,11 +941,11 @@ html.dark-mode .deck-url-header {
   .as-trigger-stats {
     white-space: normal;
     font-size: 0.7rem;
+    text-align: left;
   }
   .as-opt-stats {
     width: 100%;
     text-align: left;
-    padding-left: 38px;
   }
   .as-trigger {
     flex-wrap: wrap;
@@ -962,9 +960,6 @@ html.dark-mode .deck-url-header {
   }
   .as-combo {
     flex-shrink: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     min-width: 0;
   }
   .as-sigs {
@@ -977,9 +972,6 @@ html.dark-mode .deck-url-header {
   }
   .as-dots {
     width: 48px;
-  }
-  .as-combo {
-    min-width: 0;
   }
   .as-options {
     max-height: 300px;

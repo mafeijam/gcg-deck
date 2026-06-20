@@ -24,3 +24,4 @@ tournament-all.js
 eslint.config.js
 package.json
 package-lock.json
+export-ribbon-json.js
