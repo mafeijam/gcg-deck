@@ -45,7 +45,12 @@ html.dark-mode .deck-tier-2 { background: #b45309; }
 html.dark-mode .deck-tier-3 { background: #365314; }
 html.dark-mode .deck-tier-4 { background: #1e3a8a; }
 html.dark-mode .deck-tier-5 { background: #4c1d95; }
-html.dark-mode .deck-tier-none { background: #334155; color: #64748b; }
+html.dark-mode .deck-tier-1,
+html.dark-mode .deck-tier-2,
+html.dark-mode .deck-tier-3,
+html.dark-mode .deck-tier-4,
+html.dark-mode .deck-tier-5 { color: #e2e8f0; }
+html.dark-mode .deck-tier-none { background: #334155; color: #94a3b8; }
 html.dark-mode .msd-trigger { background: #2d3748; border-color: #4a5568; }
 html.dark-mode .msd-trigger:hover { border-color: #718096; background: #4a5568; }
 html.dark-mode .msd-trigger::after { border-top-color: #a0aec0; }
