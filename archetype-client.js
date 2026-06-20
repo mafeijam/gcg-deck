@@ -1,6 +1,11 @@
 const colorHex = {
-  Blue: '#2b6cb0', White: '#cbd5e0', Purple: '#805ad5',
-  Red: '#e53e3e', Green: '#38a169', Black: '#1a202c', Yellow: '#d69e2e',
+  Blue: '#2b6cb0',
+  White: '#cbd5e0',
+  Purple: '#805ad5',
+  Red: '#e53e3e',
+  Green: '#38a169',
+  Black: '#1a202c',
+  Yellow: '#d69e2e',
 }
 
 let pieCharts = []
@@ -61,7 +66,13 @@ function initPieChart(seriesId, canvas) {
         },
       },
       scales: {
-        x: { grid: { display: false }, ticks: { maxRotation: 45, font: { size: 11 } } },
+        x: {
+          grid: { display: false },
+          ticks: {
+            maxRotation: 45,
+            font: { size: 11 },
+          },
+        },
         y: {
           beginAtZero: true,
           ticks: {
@@ -118,7 +129,9 @@ function initPieChart(seriesId, canvas) {
       },
     }],
   })
-  pieCharts.push({ canvas, chart, seriesId })
+  pieCharts.push({ canvas,
+chart,
+seriesId })
 }
 
 const activePane = document.querySelector('.tab-pane.active')
@@ -196,22 +209,41 @@ function initArchetypeCharts(seriesId, idx) {
       data: {
         labels,
         datasets: [
-          { data: data[0], backgroundColor: isDark ? '#818cf8' : '#3b82f6', borderRadius: 3, label: 'Top' },
-          { data: data[1], backgroundColor: isDark ? '#475569' : '#cbd5e0', borderRadius: 3, label: 'Other' },
+          {
+            data: data[0],
+            backgroundColor: isDark ? '#818cf8' : '#3b82f6',
+            borderRadius: 3,
+            label: 'Top',
+          },
+          {
+            data: data[1],
+            backgroundColor: isDark ? '#475569' : '#cbd5e0',
+            borderRadius: 3,
+            label: 'Other',
+          },
         ],
       },
       options: {
-        responsive: true, maintainAspectRatio: window.innerWidth < 768 ? false : true,
+        responsive: true,
+        maintainAspectRatio: window.innerWidth < 768 ? false : true,
         plugins: {
           legend: { display: false },
           tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ' + ctx.parsed.y } },
         },
         scales: {
-          x: { stacked: true, grid: { display: false }, ticks: { color: isDark ? '#94a3b8' : '#718096' } },
+          x: {
+            stacked: true,
+            grid: { display: false },
+            ticks: { color: isDark ? '#94a3b8' : '#718096' },
+          },
           y: {
-            stacked: true, beginAtZero: true,
+            stacked: true,
+            beginAtZero: true,
             grid: { color: isDark ? '#334155' : '#e2e8f0' },
-            ticks: { color: isDark ? '#94a3b8' : '#718096', stepSize: 1 },
+            ticks: {
+              color: isDark ? '#94a3b8' : '#718096',
+              stepSize: 1,
+            },
           },
         },
         layout: { padding: { top: 25 } },
@@ -332,7 +364,10 @@ document.addEventListener('mouseover', e => {
   if (timer) clearTimeout(+timer)
   const cards = item.dataset.cards
   if (!cards) return
-  const entries = cards.split('|').map(e => { const [id, qty] = e.split(':'); return { id, qty: qty ? +qty : 1 } })
+  const entries = cards.split('|').map(e => { const [id, qty] = e.split(':'); return {
+    id,
+    qty: qty ? +qty : 1,
+  } })
   item.dataset.previewTimer = setTimeout(() => {
     const popup = document.getElementById('deck-preview-popup') || (() => {
       const el = document.createElement('div')

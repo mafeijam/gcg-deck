@@ -349,6 +349,21 @@ h3 {
   align-items: center;
   gap: 6px;
 }
+.deck-tier {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+.deck-tier-1 { background: #fca5a5; color: #fff; }
+.deck-tier-2 { background: #fdba74; color: #fff; }
+.deck-tier-3 { background: #86efac; color: #fff; }
+.deck-tier-4 { background: #93c5fd; color: #fff; }
+.deck-tier-5 { background: #c4b5fd; color: #fff; }
+.deck-tier-none { background: #e2e8f0; color: #a0aec0; }
 .archetype-type-group {
   margin-bottom: 18px;
 }
