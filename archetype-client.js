@@ -25,6 +25,7 @@ function initPieChart(seriesId, canvas) {
     pieCharts.splice(existingIdx, 1)
   }
 
+  const totalDecks = ARCH_TOTALS[seriesIdx]
   const grouped = {}
   for (const c of clusters) {
     const key = c.combo.split(' (')[0]
@@ -34,8 +35,7 @@ function initPieChart(seriesId, canvas) {
   const sorted = Object.entries(grouped).sort((a, b) => b[1] - a[1])
   const groupLabels = sorted.map(e => e[0])
   const groupData = sorted.map(e => e[1])
-  const groupTotal = groupData.reduce((a, b) => a + b, 0)
-  const groupPct = groupData.map(v => +(v / groupTotal * 100).toFixed(1))
+  const groupPct = groupData.map(v => +(v / totalDecks * 100).toFixed(1))
 
   function segmentColor(label) {
     const colors = label.split(' (')[0].split('+').map(s => colorHex[s.trim()]).filter(Boolean)
@@ -190,6 +190,18 @@ function switchArchetype(seriesId, idx) {
   container.querySelector('.as-options').classList.remove('open')
   initArchetypeCharts(seriesId, idx)
   syncOtherCardsState()
+  const tableWrap = document.getElementById('archetype-table-' + seriesId + '-' + idx)
+  if (tableWrap) {
+    const wrapper = tableWrap.querySelector('.archetype-2col-wrapper')
+    if (wrapper) {
+      const triggerBottom = container.querySelector('.as-trigger').getBoundingClientRect().bottom
+      wrapper.style.scrollMarginTop = (triggerBottom + 10) + 'px'
+      wrapper.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      })
+    }
+  }
 }
 
 function initArchetypeCharts(seriesId, idx) {

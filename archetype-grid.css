@@ -873,12 +873,11 @@ html.dark-mode .deck-url-header {
   background: linear-gradient(90deg, var(--cg-a), var(--cg-a) 88);
 }
 .cg-card-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 6px;
 }
 .cg-card {
-  flex: 1;
   min-width: 60px;
   text-align: center;
   background: #fff;
