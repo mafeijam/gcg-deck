@@ -364,11 +364,12 @@ h3 {
   font-weight: 700;
   line-height: 1.4;
   flex-shrink: 0;
-  min-width: 26px;
+  min-width: 3.2em;
   text-align: center;
 }
 .deck-tier-1 { background: #fca5a5; color: #1a202c; }
 .deck-tier-2 { background: #fdba74; color: #1a202c; }
+.deck-tier-2-5 { background: #fbbf24; color: #1a202c; }
 .deck-tier-3 { background: #86efac; color: #1a202c; }
 .deck-tier-4 { background: #93c5fd; color: #1a202c; }
 .deck-tier-5 { background: #c4b5fd; color: #1a202c; }

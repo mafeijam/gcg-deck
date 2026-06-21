@@ -26,3 +26,6 @@ eslint.config.js
 package.json
 package-lock.json
 export-ribbon-json.js
+tier-table.js
+tier-table.css
+tier-table.html
