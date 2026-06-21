@@ -144,9 +144,14 @@ if (activePane) {
 
 function toggleArchetypeSelect(seriesId) {
   const options = document.querySelector('#as-custom-' + seriesId + ' .as-options')
+  const trigger = document.querySelector('#as-custom-' + seriesId + ' .as-trigger')
   const isOpen = options.classList.contains('open')
   document.querySelectorAll('.as-options').forEach(el => el.classList.remove('open'))
-  if (!isOpen) options.classList.add('open')
+  document.querySelectorAll('.as-trigger').forEach(el => el.classList.remove('open'))
+  if (!isOpen) {
+    options.classList.add('open')
+    trigger.classList.add('open')
+  }
 }
 
 function toggleSeriesDropdown(el) {
@@ -188,6 +193,7 @@ function switchArchetype(seriesId, idx) {
   container.querySelectorAll('.as-option').forEach(opt => opt.classList.remove('active'))
   option.classList.add('active')
   container.querySelector('.as-options').classList.remove('open')
+  trigger.classList.remove('open')
   initArchetypeCharts(seriesId, idx)
   syncOtherCardsState()
   const tableWrap = document.getElementById('archetype-table-' + seriesId + '-' + idx)
@@ -316,6 +322,7 @@ function switchTab(id, el) {
 document.addEventListener('click', e => {
   if (!e.target.closest('.archetype-select-custom')) {
     document.querySelectorAll('.as-options').forEach(el => el.classList.remove('open'))
+    document.querySelectorAll('.as-trigger').forEach(el => el.classList.remove('open'))
   }
   if (!e.target.closest('.mobile-series-dropdown')) {
     document.querySelectorAll('.msd-options').forEach(el => el.classList.remove('open'))
