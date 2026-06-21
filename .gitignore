@@ -1,5 +1,6 @@
 node_modules/
 data/
+vue-gcg/
 .vscode/
 *.bak
 bandai-*.js
